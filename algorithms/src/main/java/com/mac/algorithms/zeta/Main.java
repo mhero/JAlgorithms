@@ -9,9 +9,9 @@ public class Main {
         String text = "GEEK S FOR GEEKS";
         String pattern = "GEEK";
         List<Integer> search = z.search(text, pattern);
-        for(Integer elem:search){
+        search.stream().forEach((elem) -> {
             System.out.println("Pattern found at index " + elem);
-        }
+        });
     }
 
 }

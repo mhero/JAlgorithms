@@ -6,16 +6,17 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
-        Scanner scanner=new Scanner(System.in);
-        Integer lines=Integer.parseInt(scanner.nextLine());
-        
-        for(int i=0;i<lines;i++){
-            String word= nextPermutation(scanner.nextLine());
-            if(word!=null)
+
+        Scanner scanner = new Scanner(System.in);
+        Integer lines = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 0; i < lines; i++) {
+            String word = nextPermutation(scanner.nextLine());
+            if (word != null) {
                 System.out.println(word);
-            else   
+            } else {
                 System.out.println("no answer");
+            }
         }
     }
 

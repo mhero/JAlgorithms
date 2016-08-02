@@ -35,8 +35,8 @@ public class LexicographicalPermutation {
 
     public static String nextPermutation(String str) {
         char[] toCharArray = str.toCharArray();
-        if(nextPermutation(toCharArray)){
-           return String.valueOf(toCharArray);
+        if (nextPermutation(toCharArray)) {
+            return String.valueOf(toCharArray);
         }
         return null;
     }
