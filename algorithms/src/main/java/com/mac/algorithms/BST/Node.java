@@ -2,14 +2,14 @@ package com.mac.algorithms.BST;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 
-public class Node implements Comparable<Node> {
+public class Node<T> implements Comparable<Node> {
 
     private Integer key;
-    private String data;
+    private T data;
     private Node leftChild;
     private Node rightChild;
 
-    public Node(Integer key, String data) {
+    public Node(Integer key, T data) {
         this.key = key;
         this.data = data;
     }
@@ -22,11 +22,11 @@ public class Node implements Comparable<Node> {
         this.key = key;
     }
 
-    public String getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(T data) {
         this.data = data;
     }
 
