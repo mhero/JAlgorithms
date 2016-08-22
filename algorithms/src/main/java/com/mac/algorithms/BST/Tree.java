@@ -43,30 +43,6 @@ public class Tree {
 
     }
 
-    public void inOrderTraverse(Node root) {
-        if (root != null) {
-            inOrderTraverse(root.getLeftChild());
-            root.printNode();
-            inOrderTraverse(root.getRightChild());
-        }
-    }
-
-    public void preorderTraverseTree(Node focusNode) {
-        if (focusNode != null) {
-            focusNode.printNode();
-            preorderTraverseTree(focusNode.getLeftChild());
-            preorderTraverseTree(focusNode.getRightChild());
-        }
-    }
-
-    public void postOrderTraverseTree(Node focusNode) {
-        if (focusNode != null) {
-            postOrderTraverseTree(focusNode.getLeftChild());
-            postOrderTraverseTree(focusNode.getRightChild());
-            focusNode.printNode();
-        }
-    }
-
     public Node findNode(int key) {
 
         Node focusNode = root;
@@ -86,7 +62,31 @@ public class Tree {
 
     }
 
-    public int findHeight(Node aNode) {
+    public static void inOrderTraverse(Node root) {
+        if (root != null) {
+            inOrderTraverse(root.getLeftChild());
+            root.printNode();
+            inOrderTraverse(root.getRightChild());
+        }
+    }
+
+    public static void preOrderTraverseTree(Node focusNode) {
+        if (focusNode != null) {
+            focusNode.printNode();
+            preOrderTraverseTree(focusNode.getLeftChild());
+            preOrderTraverseTree(focusNode.getRightChild());
+        }
+    }
+
+    public static void postOrderTraverseTree(Node focusNode) {
+        if (focusNode != null) {
+            postOrderTraverseTree(focusNode.getLeftChild());
+            postOrderTraverseTree(focusNode.getRightChild());
+            focusNode.printNode();
+        }
+    }
+
+    public static int findHeight(Node aNode) {
         if (aNode == null) {
             return -1;
         }
@@ -99,6 +99,29 @@ public class Tree {
         } else {
             return righth + 1;
         }
+    }
+
+    private static Node mirror(Node node) {
+        if (node == null) {
+            return node;
+        }
+
+        /* do the subtrees */
+        Node left = mirror(node.getLeftChild());
+        Node right = mirror(node.getRightChild());
+
+        /* swap the left and right pointers */
+        node.setLeftChild(right);
+        node.setRightChild(left);
+
+        return node;
+    }
+
+    public static Tree mirror(Tree tree) {
+        Tree result = new Tree();
+        Node newRoot = mirror(tree.getRoot());
+        result.setRoot(newRoot);
+        return result;
     }
 
 }
