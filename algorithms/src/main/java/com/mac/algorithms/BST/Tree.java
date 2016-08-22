@@ -85,4 +85,20 @@ public class Tree {
         return focusNode;
 
     }
+
+    public int findHeight(Node aNode) {
+        if (aNode == null) {
+            return -1;
+        }
+
+        int lefth = findHeight(aNode.getLeftChild());
+        int righth = findHeight(aNode.getRightChild());
+
+        if (lefth > righth) {
+            return lefth + 1;
+        } else {
+            return righth + 1;
+        }
+    }
+
 }
