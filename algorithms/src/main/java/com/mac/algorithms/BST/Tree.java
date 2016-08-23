@@ -43,6 +43,85 @@ public class Tree {
 
     }
 
+    public boolean remove(int key) {
+
+        Node focusNode = root;
+        Node parent = root;
+
+        boolean isItALeftChild = true;
+
+        while (focusNode.getKey() != key) {
+            parent = focusNode;
+
+            if (key < focusNode.getKey()) {
+                isItALeftChild = true;
+                focusNode = focusNode.getLeftChild();
+            } else {
+                isItALeftChild = false;
+                focusNode = focusNode.getRightChild();
+            }
+            if (focusNode == null) {
+                return false;
+            }
+        }
+
+        if (focusNode.getLeftChild() == null && focusNode.getRightChild() == null) {
+            if (focusNode == root) {
+                root = null;
+            } else if (isItALeftChild) {
+                parent.setLeftChild(null);
+            } else {
+                parent.setRightChild(null);
+            }
+        } else if (focusNode.getRightChild() == null) {
+            if (focusNode == root) {
+                root = focusNode.getLeftChild();
+            } else if (isItALeftChild) {
+                parent.setLeftChild(focusNode.getLeftChild());
+            } else {
+                parent.setRightChild(focusNode.getLeftChild());
+            }
+        } else if (focusNode.getLeftChild() == null) {
+            if (focusNode == root) {
+                root = focusNode.getRightChild();
+            } else if (isItALeftChild) {
+                parent.setLeftChild(focusNode.getRightChild());
+            } else {
+                parent.setRightChild(focusNode.getRightChild());
+            }
+        } else {
+            Node replacement = getReplacementNode(focusNode);
+            if (focusNode == root) {
+                root = replacement;
+            } else if (isItALeftChild) {
+                parent.setLeftChild(replacement);
+            } else {
+                parent.setRightChild(replacement);
+            }
+            replacement.setLeftChild(focusNode.getLeftChild());
+        }
+        return true;
+    }
+
+    public Node getReplacementNode(Node replacedNode) {
+
+        Node replacementParent = replacedNode;
+        Node replacement = replacedNode;
+        Node focusNode = replacedNode.getRightChild();
+
+        while (focusNode != null) {
+            replacementParent = replacement;
+            replacement = focusNode;
+            focusNode = focusNode.getLeftChild();
+
+        }
+        if (replacement != replacedNode.getRightChild()) {
+            replacementParent.setLeftChild(replacement.getRightChild());
+            replacement.setRightChild(replacedNode.getRightChild());
+        }
+        return replacement;
+    }
+
     public Node findNode(int key) {
 
         Node focusNode = root;
