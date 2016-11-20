@@ -26,7 +26,7 @@ public class SubSets<T> {
 
     public List<Set<T>> getSubsets(List<T> superSetInput, int k) {
         List<Set<T>> res = new ArrayList<>();
-        getSubsets(superSetInput, k, 0, new HashSet<T>(), res);
+        getSubsets(superSetInput, k, 0, new HashSet<>(), res);
         return res;
     }
 }
