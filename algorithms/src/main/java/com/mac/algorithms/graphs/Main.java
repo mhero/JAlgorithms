@@ -6,13 +6,13 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        Graph g = new Graph<String>();
+        Graph<String> g = new Graph<>();
 
         g.addVertex("1", new ArrayList<>(Arrays.asList("2", "3", "4")));
-        System.out.println(g.getAdjacents("1"));
-
         g.addVertex("1", new ArrayList<>(Arrays.asList("2", "3", "4", "5")));
-        System.out.println(g.getAdjacents("1"));
+        
+        Pair<String> pair=new Pair<>("1","6");
+        g.addEdge(pair);
 
         System.out.println(g.getVertices());
         g.printEdges(g.getEdges());
