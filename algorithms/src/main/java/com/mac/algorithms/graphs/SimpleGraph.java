@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Graph<T> {
+public class SimpleGraph<T> {
 
     private Map<T, Set<T>> graph;
 
-    public Graph() {
+    public SimpleGraph() {
         this.graph = new HashMap<>();
     }
 
@@ -51,6 +51,14 @@ public class Graph<T> {
 
     public List<T> getVertices() {
         return new ArrayList(graph.keySet());
+    }
+
+    public int getOrder() {
+        return getVertices().size();
+    }
+
+    public int getSize() {
+        return getEdges().size();
     }
 
     public List<Pair<T>> getEdges() {
