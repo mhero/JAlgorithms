@@ -10,28 +10,28 @@ package com.mac.algorithms.avl;
 public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterface<K> {
 
     /**
-     * The root of the tree.
+     * Represents how balanced a node's left and right children are.
      */
+    public enum BalanceState {
+        UNBALANCED_RIGHT,
+        SLIGHTLY_UNBALANCED_RIGHT,
+        BALANCED,
+        SLIGHTLY_UNBALANCED_LEFT,
+        UNBALANCED_LEFT
+    }
+
     private AVLTreeNode<K> root;
 
-    /**
-     * The size of the tree.
-     */
     private int size = 0;
 
-    /**
-     * Creates a new {@link AVLTree}.
-     */
     public AVLTree() {
     }
 
     public AVLTreeNode<K> getRoot() {
         return root;
     }
-    
-    /**
-     * {@inheritDoc}
-     */
+
+    @Override
     public void insert(K key) {
         root = insert(key, root);
         size++;
@@ -92,6 +92,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
     /**
      * {@inheritDoc}
      */
+    @Override
     public void delete(K key) {
         root = delete(key, root);
         size--;
@@ -173,6 +174,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean contains(K key) {
         if (root == null) {
             return false;
@@ -255,6 +257,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
     /**
      * {@inheritDoc}
      */
+    @Override
     public int size() {
         return size;
     }
@@ -262,6 +265,7 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -291,14 +295,4 @@ public class AVLTree<K extends Comparable<K>> implements BinarySearchTreeInterfa
         return BalanceState.BALANCED;
     }
 
-    /**
-     * Represents how balanced a node's left and right children are.
-     */
-    private enum BalanceState {
-        UNBALANCED_RIGHT,
-        SLIGHTLY_UNBALANCED_RIGHT,
-        BALANCED,
-        SLIGHTLY_UNBALANCED_LEFT,
-        UNBALANCED_LEFT
-    }
 }
