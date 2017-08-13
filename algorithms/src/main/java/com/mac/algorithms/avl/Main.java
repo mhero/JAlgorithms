@@ -17,7 +17,7 @@ public class Main {
         avlTree.insert(4);
         System.out.println(avlTree.getBalanceState(avlTree.getRoot()));
         
-        BTreePrinter.printNode(avlTree.getRoot());
+        AVLTreePrinter.printNode(avlTree.getRoot());
     }
 
 }

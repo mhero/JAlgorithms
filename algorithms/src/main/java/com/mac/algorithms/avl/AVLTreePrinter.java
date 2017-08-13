@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mac.algorithms.avl;
 
 import java.util.ArrayList;
@@ -13,16 +8,16 @@ import java.util.List;
  *
  * @author marco
  */
-public class BTreePrinter {
+public class AVLTreePrinter {
 
     public static void printNode(AVLTreeNode root) {
-        int maxLevel = BTreePrinter.maxLevel(root);
+        int maxLevel = AVLTreePrinter.maxLevel(root);
 
         printNodeInternal(Collections.singletonList(root), 1, maxLevel);
     }
 
     private static <T extends Comparable<?>> void printNodeInternal(List<AVLTreeNode> nodes, int level, int maxLevel) {
-        if (nodes.isEmpty() || BTreePrinter.isAllElementsNull(nodes)) {
+        if (nodes.isEmpty() || AVLTreePrinter.isAllElementsNull(nodes)) {
             return;
         }
 
@@ -31,9 +26,9 @@ public class BTreePrinter {
         int firstSpaces = (int) Math.pow(2, (floor)) - 1;
         int betweenSpaces = (int) Math.pow(2, (floor + 1)) - 1;
 
-        BTreePrinter.printWhitespaces(firstSpaces);
+        AVLTreePrinter.printWhitespaces(firstSpaces);
 
-        List<AVLTreeNode> newNodes = new ArrayList<AVLTreeNode>();
+        List<AVLTreeNode> newNodes = new ArrayList<>();
         for (AVLTreeNode node : nodes) {
             if (node != null) {
                 System.out.print(node.getKey());
@@ -45,33 +40,33 @@ public class BTreePrinter {
                 System.out.print(" ");
             }
 
-            BTreePrinter.printWhitespaces(betweenSpaces);
+            AVLTreePrinter.printWhitespaces(betweenSpaces);
         }
         System.out.println("");
 
         for (int i = 1; i <= endgeLines; i++) {
             for (int j = 0; j < nodes.size(); j++) {
-                BTreePrinter.printWhitespaces(firstSpaces - i);
+                AVLTreePrinter.printWhitespaces(firstSpaces - i);
                 if (nodes.get(j) == null) {
-                    BTreePrinter.printWhitespaces(endgeLines + endgeLines + i + 1);
+                    AVLTreePrinter.printWhitespaces(endgeLines + endgeLines + i + 1);
                     continue;
                 }
 
                 if (nodes.get(j).getLeft() != null) {
                     System.out.print("/");
                 } else {
-                    BTreePrinter.printWhitespaces(1);
+                    AVLTreePrinter.printWhitespaces(1);
                 }
 
-                BTreePrinter.printWhitespaces(i + i - 1);
+                AVLTreePrinter.printWhitespaces(i + i - 1);
 
                 if (nodes.get(j).getRight() != null) {
                     System.out.print("\\");
                 } else {
-                    BTreePrinter.printWhitespaces(1);
+                    AVLTreePrinter.printWhitespaces(1);
                 }
 
-                BTreePrinter.printWhitespaces(endgeLines + endgeLines - i);
+                AVLTreePrinter.printWhitespaces(endgeLines + endgeLines - i);
             }
 
             System.out.println("");
@@ -91,7 +86,7 @@ public class BTreePrinter {
             return 0;
         }
 
-        return Math.max(BTreePrinter.maxLevel(node.getLeft()), BTreePrinter.maxLevel(node.getRight())) + 1;
+        return Math.max(AVLTreePrinter.maxLevel(node.getLeft()), AVLTreePrinter.maxLevel(node.getRight())) + 1;
     }
 
     private static <T> boolean isAllElementsNull(List<T> list) {
