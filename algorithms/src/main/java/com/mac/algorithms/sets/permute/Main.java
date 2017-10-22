@@ -6,6 +6,7 @@
 package com.mac.algorithms.sets.permute;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -13,10 +14,9 @@ import java.util.Arrays;
  */
 public class Main {
 
-    
     public static void main(String[] args) {
-        char[] c = {'A', 'B' , 'C'};
+        List<Integer> c = Arrays.asList(1, 2, 3);
         System.out.println(Arrays.toString(Permutes.permuteWithRepetition(c, 4).toArray()));
     }
-    
+
 }

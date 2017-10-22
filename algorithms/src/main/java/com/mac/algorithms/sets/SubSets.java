@@ -28,12 +28,12 @@ public class SubSets<T> {
     /* function wrapper*/
     /* gets subsets without repettition */
     /*  eg 
-        input [a,b,c,d,e]
+        input [a,b,c,d,e], 4
         result [[a, b, c, d], [a, b, c, e], [a, b, d, e], [a, c, d, e], [b, c, d, e]]
     */
-    public List<Set<T>> getSubsets(List<T> superSetInput, int k) {
+    public List<Set<T>> getSubsets(List<T> superSetInput, int sizeOfSets) {
         List<Set<T>> res = new ArrayList<>();
-        getSubsets(superSetInput, k, 0, new HashSet<>(), res);
+        getSubsets(superSetInput, sizeOfSets, 0, new HashSet<>(), res);
         return res;
     }
 }

@@ -23,19 +23,19 @@ public class Permutes {
                 -print S
             -else for each c in C
                 -generate all strings of length N with letters from C that start with S+c
-    */
-    
+     */
     /* function performer */
-    public static void permuteWithRepetition(char[] c, int n, String start, List<String> result) {
-        
+    public static <T> void permuteWithRepetition(List<T> c, int n, String start, List<String> result) {
+
         if (start.length() >= n) {
             result.add(start);
         } else {
-            for (char x : c) {
-                permuteWithRepetition(c, n, start + x, result);
+            for (T x : c) {
+                permuteWithRepetition(c, n, start + String.valueOf(x), result);
             }
         }
     }
+
     /* function wrapper */
     /* gets all combinations with repetitions */
     /* eg
@@ -46,12 +46,11 @@ public class Permutes {
        BBCA,BBCB,BBCC,BCAA,BCAB,BCAC,BCBA,BCBB,BCBC,BCCA,BCCB,BCCC,CAAA,CAAB,
        CAAC,CABA,CABB,CABC,CACA,CACB,CACC,CBAA,CBAB,CBAC,CBBA,CBBB,CBBC,CBCA,
        CBCB,CBCC,CCAA,CCAB,CCAC,CCBA,CCBB,CCBC,CCCA,CCCB,CCCC]
-    */
-    public static List<String> permuteWithRepetition(char[] c, int n){
+     */
+    public static <T> List<String> permuteWithRepetition(List<T> c, int sizeOfSets) {
         List<String> result = new ArrayList<>();
-        permuteWithRepetition(c, n, "", result);
+        permuteWithRepetition(c, sizeOfSets, "", result);
         return result;
     }
-    
 
 }
