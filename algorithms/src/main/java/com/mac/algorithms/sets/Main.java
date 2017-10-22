@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         SubSets<String> subSets = new SubSets<>();
-        String inputSubSet = "testwords";
+        String inputSubSet = "abcde";
         List<Set<String>> subSet = subSets.getSubsets(Arrays.asList(inputSubSet.split("")), 4);
         System.out.println(subSet);
 

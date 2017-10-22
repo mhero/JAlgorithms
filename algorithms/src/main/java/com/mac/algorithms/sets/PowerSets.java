@@ -7,6 +7,11 @@ import java.util.Set;
 
 public class PowerSets<T> {
 
+    /* gets all powersets */
+    /*  eg 
+        input [1,2,3]
+        result [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+     */
     public <T> Set<Set<T>> powerSet(Set<T> originalSet) {
         Set<Set<T>> sets = new HashSet<>();
         if (originalSet.isEmpty()) {

@@ -1,4 +1,4 @@
-package com.mac.algorithms.lexipermute;
+package com.mac.algorithms.sets.lexipermute;
 
 public class LexicographicalPermutation {
 
