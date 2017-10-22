@@ -23,7 +23,7 @@ public class Permutes {
                 -print S
             -else for each c in C
                 -generate all strings of length N with letters from C that start with S+c
-     */
+    */
     /* function performer */
     public static <T> void permuteWithRepetition(List<T> c, int n, String start, List<String> result) {
 
@@ -46,7 +46,7 @@ public class Permutes {
        BBCA,BBCB,BBCC,BCAA,BCAB,BCAC,BCBA,BCBB,BCBC,BCCA,BCCB,BCCC,CAAA,CAAB,
        CAAC,CABA,CABB,CABC,CACA,CACB,CACC,CBAA,CBAB,CBAC,CBBA,CBBB,CBBC,CBCA,
        CBCB,CBCC,CCAA,CCAB,CCAC,CCBA,CCBB,CCBC,CCCA,CCCB,CCCC]
-     */
+    */
     public static <T> List<String> permuteWithRepetition(List<T> c, int sizeOfSets) {
         List<String> result = new ArrayList<>();
         permuteWithRepetition(c, sizeOfSets, "", result);

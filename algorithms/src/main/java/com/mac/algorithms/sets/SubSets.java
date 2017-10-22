@@ -5,10 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SubSets<T> {
+public class SubSets {
 
     /* function performer */
-    private void getSubsets(List<T> superSet, int k, int idx, Set<T> current, List<Set<T>> solution) {
+    private static <T> void getSubsets(List<T> superSet, int k, int idx, Set<T> current, List<Set<T>> solution) {
         if (current.size() == k) {
             solution.add(new HashSet<>(current));
             return;
@@ -31,7 +31,7 @@ public class SubSets<T> {
         input [a,b,c,d,e], 4
         result [[a, b, c, d], [a, b, c, e], [a, b, d, e], [a, c, d, e], [b, c, d, e]]
     */
-    public List<Set<T>> getSubsets(List<T> superSetInput, int sizeOfSets) {
+    public static <T> List<Set<T>> getSubsets(List<T> superSetInput, int sizeOfSets) {
         List<Set<T>> res = new ArrayList<>();
         getSubsets(superSetInput, sizeOfSets, 0, new HashSet<>(), res);
         return res;
