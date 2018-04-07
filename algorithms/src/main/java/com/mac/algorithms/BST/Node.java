@@ -2,66 +2,56 @@ package com.mac.algorithms.BST;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 
-public class Node<T> implements Comparable<Node> {
+public class Node implements Comparable<Node> {
 
-    private Integer key;
-    private T data;
-    private Node leftChild;
-    private Node rightChild;
+	private Integer value;
+	private Node left;
+	private Node right;
 
-    public Node(Integer key, T data) {
-        this.key = key;
-        this.data = data;
-    }
+	public Node(Integer value) {
+		this.value = value;
+	}
 
-    public Integer getKey() {
-        return key;
-    }
+	public Integer getValue() {
+		return value;
+	}
 
-    public void setKey(Integer key) {
-        this.key = key;
-    }
+	public void setValue(Integer value) {
+		this.value = value;
+	}
 
-    public T getData() {
-        return data;
-    }
+	public Node getLeft() {
+		return left;
+	}
 
-    public void setData(T data) {
-        this.data = data;
-    }
+	public void setLeft(Node left) {
+		this.left = left;
+	}
 
-    public Node getLeftChild() {
-        return leftChild;
-    }
+	public Node getRight() {
+		return right;
+	}
 
-    public void setLeftChild(Node leftChild) {
-        this.leftChild = leftChild;
-    }
+	public void setRight(Node right) {
+		this.right = right;
+	}
 
-    public Node getRightChild() {
-        return rightChild;
-    }
+	@Override
+	public int compareTo(Node o) {
+		return Integer.compare(this.value, o.getValue());
+	}
 
-    public void setRightChild(Node rightChild) {
-        this.rightChild = rightChild;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Node)) {
+			return false;
+		}
 
-    @Override
-    public int compareTo(Node o) {
-        return Integer.compare(this.key, o.getKey());
-    }
+		Node rhs = (Node) obj;
+		return new EqualsBuilder().append(this.value, rhs.getValue()).isEquals();
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Node)) {
-            return false;
-        }
-
-        Node rhs = (Node) obj;
-        return new EqualsBuilder().append(this.key, rhs.getKey()).isEquals();
-    }
-
-    public void printNode() {
-        System.out.println("key: " + this.key + ", data: " + this.data);
-    }
+	public void printNode() {
+		System.out.println("key: " + this.value);
+	}
 }

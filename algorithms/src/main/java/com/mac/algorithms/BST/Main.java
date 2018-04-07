@@ -2,27 +2,27 @@ package com.mac.algorithms.BST;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Tree tree = new Tree();
-        tree.addNode(new Node(50, "test"));
-        tree.addNode(new Node(25, 10));
-        tree.addNode(new Node(15, "test2"));
-        tree.addNode(new Node(17, "test2"));
+	public static void main(String[] args) {
+		Tree tree = new Tree();
+		tree.addNode(new Node(50));
+		tree.addNode(new Node(25));
+		tree.addNode(new Node(15));
+		tree.addNode(new Node(17));
 
-        Tree mirror = Tree.mirror(tree);
-        
-        System.out.println("in-order tree");
-        Tree.preOrderTraverseTree(tree.getRoot());
-        System.out.println("mirror in-order tree");
-        Tree.preOrderTraverseTree(mirror.getRoot());
+		Tree mirror = TreeFunctions.mirror(tree);
 
-        Node findNode = tree.findNode(25);
-        if (findNode != null) {
-            findNode.printNode();
-        }
+		System.out.println("in-order tree");
+		TreeFunctions.preOrderTraverseTree(tree.getRoot());
+		System.out.println("mirror in-order tree");
+		TreeFunctions.preOrderTraverseTree(mirror.getRoot());
 
-        System.out.println(Tree.findHeight(tree.getRoot()));
+		Node findNode = tree.findNode(25);
+		if (findNode != null) {
+			findNode.printNode();
+		}
 
-    }
+		System.out.println(TreeFunctions.findHeight(tree.getRoot()));
+
+	}
 
 }
